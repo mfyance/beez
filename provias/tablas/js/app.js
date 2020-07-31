@@ -1,7 +1,8 @@
 const Table = (function () {
   const data = {
-    tabsTables: document.querySelectorAll('nav ul li'),
-    tablas: document.querySelectorAll('.tabla'),
+    tabsTables: document.querySelectorAll('ul.sub-nav li'),
+    tabsCtns: document.querySelectorAll('nav ul li'),
+    containers: document.querySelectorAll('.ctn-tablas'),
     selects: document.querySelectorAll('.container-select'),
     opsSelect: document.querySelectorAll('.container-select ul li'),
     filters: document.querySelectorAll('.show-filters'),
@@ -65,23 +66,6 @@ const Table = (function () {
         id: "notificacion-observacion",
         name: "NotifObservación"
       }
-      // ,
-      // {
-      //   id: "subsanado",
-      //   name: "Subsanado"
-      // },
-      // {
-      //   id: "notificacion-autorizacion",
-      //   name: "Notificado Autorización"
-      // },
-      // {
-      //   id: "especialista",
-      //   name: "Especialista"
-      // },
-      // {
-      //   id: "estado",
-      //   name: "Estado"
-      // }
     ],
     indexTabla2: [
       {
@@ -166,11 +150,26 @@ const Table = (function () {
   const events = {
     onTabsTable: function (elem) {
       elem.addEventListener('click', (e) => {
-        data.tabsTables.forEach((e) => { e.classList.remove('active') })
-        data.tablas.forEach((e) => { e.classList.add('is-hidden') })
-        e.target.classList.add('active')
+        console.log()
+        const idContenedor = e.target.parentNode.parentNode.id;
         const table = e.target.getAttribute('datta-tabla')
-        document.querySelector(`.${table}`).classList.remove('is-hidden')
+        console.log(table)
+
+        document.querySelectorAll(`#${idContenedor} ul.sub-nav li`).forEach((e) => { e.classList.remove('active') })
+        document.querySelectorAll(`#${idContenedor} .tabla`).forEach((e) => { e.classList.add('is-hidden') })
+
+        e.target.classList.add('active')
+        document.querySelector(`#${idContenedor} .${table}`).classList.remove('is-hidden')
+      });
+    },
+    onTabsCtn: function (elem) {
+      elem.addEventListener('click', (e) => {
+        data.tabsCtns.forEach((e) => { e.classList.remove('active') })
+        data.containers.forEach((e) => { e.classList.add('is-hidden') })
+
+        const ctn = e.target.getAttribute('datta-ctn')
+        e.target.classList.add('active')
+        document.querySelector(`#${ctn}`).classList.remove('is-hidden')
       });
     },
     showMoreOptions: function (elem) {
@@ -378,10 +377,15 @@ const Table = (function () {
     // Creando tablas en base al json
     methods.getDataTable(data.urlTable1, 'tabla-1', data.indexTabla1)
     methods.getDataTable(data.urlTable2, 'tabla-2', data.indexTabla2)
+    methods.getDataTable(data.urlTable1, 'tabla-4', data.indexTabla1)
+    methods.getDataTable(data.urlTable2, 'tabla-3', data.indexTabla2)
 
     // Evento de tabs
     data.tabsTables.forEach((e) => {
       events.onTabsTable(e)
+    })
+    data.tabsCtns.forEach((e) => {
+      events.onTabsCtn(e)
     })
 
     // Evento para mostrar filtros 
@@ -389,6 +393,7 @@ const Table = (function () {
       events.showFilters(e)
     })
 
+    // Ocultar más opciones
     events.hideMoreOps()
   };
 
