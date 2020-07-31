@@ -20,7 +20,7 @@
 .Cards__card {
   background-image: url(../img/background.png);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
   background-position-x: 2px;
   background-color: var(--color-white);
   min-width: 280px;
@@ -44,10 +44,15 @@
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 12px;
+  min-height: 50px;
 }
 .Cards__card--title img {
   margin-right: 12px;
   height: 50px;
+}
+.Cards__card--title img.small {
+  margin-right: 12px;
+  height: 40px;
 }
 .Cards__card--btn {
   display: flex;
