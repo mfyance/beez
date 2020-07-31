@@ -8,9 +8,6 @@
   list-style: none;
   text-decoration: none;
 }
-body {
-  padding-top: 30px;
-}
 
 /* cards */
 .Cards {
@@ -75,11 +72,6 @@ body {
 
 /* responsive */
 @media (max-width: 900px) {
-  /* generales */
-  body {
-    padding: 50px 20px;
-  }
-
   /* cards */
   .Cards__card {
     margin-bottom: 2%;
@@ -95,7 +87,6 @@ body {
   /* cards */
   .Cards {
     flex-direction: column;
-    justify-content: flex-start;
   }
   .Cards__card {
     margin-bottom: 10%;
