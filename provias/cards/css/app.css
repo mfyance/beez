@@ -1,0 +1,107 @@
+/* generales */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  box-sizing: border-box;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  padding-top: 30px;
+}
+
+/* cards */
+.Cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+.Cards__card {
+  background-image: url(../img/background.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 2px;
+  background-color: var(--color-white);
+  min-width: 280px;
+  max-width: 280px;
+  width: 32%;
+  padding: 24px 24px 28px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.2));
+  margin-right: 3%;
+}
+.Cards__card:last-child {
+  margin-right: 0;
+}
+.Cards__card--title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+.Cards__card--title img {
+  margin-right: 12px;
+  height: 50px;
+}
+.Cards__card--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 160px;
+  font-size: 15px;
+  line-height: 18px;
+  background-color: var(--color-gray-bckg);
+  color: var(--color-secondary);
+  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: auto;
+  padding: 12px;
+  height: 40px;
+  cursor: pointer;
+}
+.Cards__card--btn img {
+  height: 16px;
+  margin-left: 10px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  /* generales */
+  body {
+    padding: 50px 20px;
+  }
+
+  /* cards */
+  .Cards__card {
+    margin-bottom: 2%;
+  }
+  .Cards__card:last-child {
+    margin-bottom: 0;
+  }
+  .Cards__card:nth-child(2) {
+    margin-right: 0;
+  }
+}
+@media (max-width: 650px) {
+  /* cards */
+  .Cards {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .Cards__card {
+    margin-bottom: 10%;
+    margin-right: 0;
+  }
+  .Cards__card:last-child {
+    margin-bottom: 0;
+  }
+}

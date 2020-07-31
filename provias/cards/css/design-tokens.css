@@ -1,0 +1,13 @@
+:root {
+  /* colores */
+  --color-primary: #314254;
+  --color-secondary: #555555;
+
+  --color-gray-bckg: #ededed;
+
+  --color-white: #ffffff;
+
+  /* fuentes */
+  --font-primary: Roboto;
+  --font-icons: "Material Icons";
+}
